@@ -306,7 +306,6 @@
         .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
     }
 
-    // ── Init Supabase ──
     try {
       if (!window.supabase) throw new Error('Supabase library did not load.');
       supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -314,12 +313,13 @@
       setStatus('Setup error: ' + err.message, 'error');
     }
 
-    // ── Preload volunteers ──
+    // ── Preload Full-time missionaries only ──
     async function preloadVolunteers() {
       if (!supabaseClient) return;
       const { data, error } = await supabaseClient
         .from('volunteers')
         .select('*')
+        .eq('missionary_type', 'Full-time')
         .order('full_name', { ascending: true });
 
       if (error) {
@@ -329,8 +329,8 @@
       }
 
       volunteerCache = data || [];
-      setStatus('Form ready. ' + volunteerCache.length + ' volunteers loaded.', '');
-      loadAssignments(); // populate view panel if date already set
+      setStatus('Form ready. ' + volunteerCache.length + ' missionaries loaded.', '');
+      loadAssignments();
     }
 
     // ── Load existing assignments ──
@@ -360,7 +360,6 @@
         .order('entered_name', { ascending: true });
 
       if (error) {
-        // Show the real error on screen — no hiding it
         const detail = error.message || error.details || error.hint || JSON.stringify(error);
         assignmentListEl.innerHTML = `<li class="no-assignments" style="color:#c0392b;font-style:normal">⚠ ${escapeHtml(detail)}</li>`;
         assignmentCountEl.textContent = '';
@@ -374,11 +373,10 @@
         return;
       }
 
-      assignmentCountEl.textContent = data.length + ' volunteer' + (data.length !== 1 ? 's' : '') + ' assigned';
+      assignmentCountEl.textContent = data.length + ' missionary' + (data.length !== 1 ? 'ies' : '') + ' assigned';
       assignmentListEl.innerHTML = data.map(r => `<li>${escapeHtml(r.entered_name)}</li>`).join('');
     }
 
-    // Trigger on any date or shift change (blur covers Safari)
     serviceDateInput.addEventListener('change', loadAssignments);
     serviceDateInput.addEventListener('input',  loadAssignments);
     serviceDateInput.addEventListener('blur',   loadAssignments);
@@ -467,7 +465,6 @@
       });
     }
 
-    // ── Clear ──
     function clearForm() {
       document.querySelectorAll('.name-input, .phone-input').forEach(el => el.value = '');
       document.querySelectorAll('.id-input').forEach(el => el.value = '');
@@ -479,7 +476,6 @@
       setStatus('Form cleared.', '');
     }
 
-    // ── Submit ──
     submitBtn.addEventListener('click', async () => {
       try {
         setStatus('Saving...', '');
@@ -504,7 +500,7 @@
           });
         });
 
-        if (!records.length) { setStatus('Please enter at least one volunteer.', 'error'); return; }
+        if (!records.length) { setStatus('Please enter at least one missionary.', 'error'); return; }
 
         const { error } = await supabaseClient.from('ym_assignments').insert(records);
 
@@ -514,7 +510,7 @@
           return;
         }
 
-        setStatus(records.length + ' volunteer(s) saved successfully.', 'success');
+        setStatus(records.length + ' missionary' + (records.length !== 1 ? 'ies' : '') + ' saved successfully.', 'success');
         document.querySelectorAll('.name-input, .phone-input').forEach(el => el.value = '');
         document.querySelectorAll('.id-input').forEach(el => el.value = '');
         await loadAssignments();
@@ -533,7 +529,7 @@
     });
 
     wireAutocomplete();
-    setStatus('Loading volunteers...', '');
+    setStatus('Loading missionaries...', '');
     preloadVolunteers();
   </script>
 </body>
