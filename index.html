@@ -17,7 +17,7 @@
     }
 
     .container {
-      max-width: 1050px;
+      max-width: 1200px;
       margin: 0 auto;
       background: #fff;
       padding: 24px;
@@ -25,32 +25,91 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
-    h2 {
-      margin: 0 0 20px 0;
-      font-size: 24px;
-    }
+    h2 { margin: 0 0 20px 0; font-size: 24px; }
 
     .top-fields {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
-    label {
-      display: block;
-      font-weight: 600;
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+
+    input, select, button { font: inherit; }
+
+    input[type="date"], select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ── View panel ── */
+    .view-panel {
+      border: 1px solid #d9d9d9;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .view-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 6px;
     }
 
-    input, select, button {
-      font: inherit;
+    .view-panel h3 { margin: 0; font-size: 16px; color: #333; }
+
+    .refresh-btn {
+      padding: 4px 8px;
+      font-size: 16px;
+      background: #fff;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      color: #2d5bd1;
+      cursor: pointer;
+      line-height: 1;
     }
 
-    input[type="date"],
-    select,
-    .name-input,
-    .phone-input {
+    .refresh-btn:hover { background: #f5f8ff; border-color: #2d5bd1; }
+
+    .assignment-count { font-size: 13px; color: #666; margin-bottom: 10px; min-height: 18px; }
+
+    .assignment-list { list-style: none; margin: 0; padding: 0; }
+
+    .assignment-list li {
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .assignment-list li:last-child { border-bottom: none; }
+    .no-assignments { color: #999; font-style: italic; border-bottom: none !important; }
+
+    /* ── Entry table ── */
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+
+    th, td { border: 1px solid #d9d9d9; padding: 10px; vertical-align: middle; text-align: left; }
+    th { background: #f3f3f3; font-weight: 600; text-align: center; }
+
+    .vol-col  { width: 80px; }
+    .name-col { width: 55%; }
+
+    .vol-text { font-weight: 600; white-space: nowrap; }
+
+    .name-cell { position: relative; }
+
+    .name-input, .phone-input {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid #cfcfcf;
@@ -59,50 +118,10 @@
       margin: 0;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-    }
-
-    th, td {
-      border: 1px solid #d9d9d9;
-      padding: 10px;
-      vertical-align: middle;
-      text-align: left;
-    }
-
-    th {
-      background: #f3f3f3;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .vol-col   { width: 90px; }
-    .name-col  { width: 34%; }
-    .phone-col { width: 22%; }
-    .date-col  { width: 22%; }
-    .shift-col { width: 12%; }
-
-    .vol-text {
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .readonly-cell {
-      background: #fafafa;
-      font-weight: 500;
-    }
-
-    .name-cell {
-      position: relative;
-    }
-
     .suggestions {
       position: absolute;
       top: calc(100% + 2px);
-      left: 10px;
-      right: 10px;
+      left: 10px; right: 10px;
       background: #fff;
       border: 1px solid #cfcfcf;
       border-radius: 6px;
@@ -113,37 +132,13 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .suggestion-item {
-      padding: 10px 12px;
-      cursor: pointer;
-      border-bottom: 1px solid #eee;
-    }
+    .suggestion-item { padding: 10px 12px; cursor: pointer; border-bottom: 1px solid #eee; }
+    .suggestion-item:last-child { border-bottom: none; }
+    .suggestion-item:hover, .suggestion-item.highlighted { background: #f5f8ff; }
+    .suggestion-name { font-weight: 600; }
+    .suggestion-phone { font-size: 13px; color: #666; margin-top: 2px; }
 
-    .suggestion-item:last-child {
-      border-bottom: none;
-    }
-
-    .suggestion-item:hover,
-    .suggestion-item.highlighted {
-      background: #f5f8ff;
-    }
-
-    .suggestion-name {
-      font-weight: 600;
-    }
-
-    .suggestion-phone {
-      font-size: 13px;
-      color: #666;
-      margin-top: 2px;
-    }
-
-    .button-row {
-      margin-top: 18px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .button-row { margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
 
     button {
       padding: 10px 18px;
@@ -155,70 +150,25 @@
       font-weight: 600;
     }
 
-    button:hover {
-      background: #244bb0;
-    }
+    button:hover { background: #244bb0; }
+    .secondary { background: #fff; color: #2d5bd1; }
 
-    .secondary {
-      background: #fff;
-      color: #2d5bd1;
-    }
-
-    .status {
-      margin-top: 14px;
-      font-weight: 600;
-      white-space: pre-wrap;
-    }
-
+    .status { margin-top: 14px; font-weight: 600; white-space: pre-wrap; }
     .status.error   { color: #c0392b; }
     .status.success { color: #1a7a3a; }
 
     @media (max-width: 860px) {
-      .top-fields {
-        grid-template-columns: 1fr;
-      }
-
-      table, thead, tbody, tr, th, td {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        border: 1px solid #d9d9d9;
-        border-radius: 8px;
-        margin-bottom: 14px;
-        overflow: hidden;
-      }
-
-      td {
-        border: none;
-        border-bottom: 1px solid #eee;
-        width: 100% !important;
-      }
-
-      td:last-child {
-        border-bottom: none;
-      }
-
-      td::before {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
+      .top-fields, .main-grid { grid-template-columns: 1fr; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border: 1px solid #d9d9d9; border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+      td { border: none; border-bottom: 1px solid #eee; width: 100% !important; }
+      td:last-child { border-bottom: none; }
+      td::before { display: block; font-weight: 600; margin-bottom: 6px; }
       td.vol-col::before   { content: "Volunteer"; }
       td.name-col::before  { content: "Name"; }
       td.phone-col::before { content: "Phone"; }
-      td.date-col::before  { content: "Date"; }
-      td.shift-col::before { content: "Shift"; }
-
-      .suggestions {
-        left: 0;
-        right: 0;
-      }
+      .suggestions { left: 0; right: 0; }
     }
   </style>
 </head>
@@ -227,7 +177,6 @@
     <h2>Missionary Assignment Entry</h2>
 
     <form id="ymForm" autocomplete="off">
-      <!-- hidden decoys to reduce browser autofill -->
       <input type="text" name="fake_name" autocomplete="name" style="display:none">
       <input type="text" name="fake_phone" autocomplete="tel" style="display:none">
 
@@ -236,7 +185,6 @@
           <label for="serviceDate">Service Date</label>
           <input type="date" id="serviceDate" name="service_date">
         </div>
-
         <div>
           <label for="shift">Shift</label>
           <select id="shift" name="shift">
@@ -246,82 +194,85 @@
         </div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th class="vol-col">Vol</th>
-            <th class="name-col">Name</th>
-            <th class="phone-col">Phone</th>
-            <th class="date-col">Date</th>
-            <th class="shift-col">Shift</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="vol-col"><span class="vol-text">Vol 1</span></td>
-            <td class="name-col name-cell">
-              <input type="text" class="name-input" name="x1_a" autocomplete="new-password">
-              <input type="hidden" class="id-input">
-              <div class="suggestions"></div>
-            </td>
-            <td class="phone-col"><input type="text" class="phone-input" name="x1_b" autocomplete="new-password"></td>
-            <td class="date-col readonly-cell date-cell"></td>
-            <td class="shift-col readonly-cell shift-cell"></td>
-          </tr>
+      <div class="main-grid">
 
-          <tr>
-            <td class="vol-col"><span class="vol-text">Vol 2</span></td>
-            <td class="name-col name-cell">
-              <input type="text" class="name-input" name="x2_a" autocomplete="new-password">
-              <input type="hidden" class="id-input">
-              <div class="suggestions"></div>
-            </td>
-            <td class="phone-col"><input type="text" class="phone-input" name="x2_b" autocomplete="new-password"></td>
-            <td class="date-col readonly-cell date-cell"></td>
-            <td class="shift-col readonly-cell shift-cell"></td>
-          </tr>
+        <!-- ── Left: view panel ── -->
+        <div class="view-panel">
+          <div class="view-panel-header">
+            <h3>Currently Assigned</h3>
+            <button type="button" id="refreshBtn" class="refresh-btn" title="Refresh">&#8635;</button>
+          </div>
+          <div class="assignment-count" id="assignmentCount"></div>
+          <ul class="assignment-list" id="assignmentList">
+            <li class="no-assignments">Select a date and shift to see existing assignments.</li>
+          </ul>
+        </div>
 
-          <tr>
-            <td class="vol-col"><span class="vol-text">Vol 3</span></td>
-            <td class="name-col name-cell">
-              <input type="text" class="name-input" name="x3_a" autocomplete="new-password">
-              <input type="hidden" class="id-input">
-              <div class="suggestions"></div>
-            </td>
-            <td class="phone-col"><input type="text" class="phone-input" name="x3_b" autocomplete="new-password"></td>
-            <td class="date-col readonly-cell date-cell"></td>
-            <td class="shift-col readonly-cell shift-cell"></td>
-          </tr>
+        <!-- ── Right: entry form ── -->
+        <div class="entry-panel">
+          <table>
+            <thead>
+              <tr>
+                <th class="vol-col">Vol</th>
+                <th class="name-col">Name</th>
+                <th class="phone-col">Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="vol-col"><span class="vol-text">Vol 1</span></td>
+                <td class="name-col name-cell">
+                  <input type="text" class="name-input" name="x1_a" autocomplete="new-password">
+                  <input type="hidden" class="id-input">
+                  <div class="suggestions"></div>
+                </td>
+                <td class="phone-col"><input type="text" class="phone-input" name="x1_b" autocomplete="new-password"></td>
+              </tr>
+              <tr>
+                <td class="vol-col"><span class="vol-text">Vol 2</span></td>
+                <td class="name-col name-cell">
+                  <input type="text" class="name-input" name="x2_a" autocomplete="new-password">
+                  <input type="hidden" class="id-input">
+                  <div class="suggestions"></div>
+                </td>
+                <td class="phone-col"><input type="text" class="phone-input" name="x2_b" autocomplete="new-password"></td>
+              </tr>
+              <tr>
+                <td class="vol-col"><span class="vol-text">Vol 3</span></td>
+                <td class="name-col name-cell">
+                  <input type="text" class="name-input" name="x3_a" autocomplete="new-password">
+                  <input type="hidden" class="id-input">
+                  <div class="suggestions"></div>
+                </td>
+                <td class="phone-col"><input type="text" class="phone-input" name="x3_b" autocomplete="new-password"></td>
+              </tr>
+              <tr>
+                <td class="vol-col"><span class="vol-text">Vol 4</span></td>
+                <td class="name-col name-cell">
+                  <input type="text" class="name-input" name="x4_a" autocomplete="new-password">
+                  <input type="hidden" class="id-input">
+                  <div class="suggestions"></div>
+                </td>
+                <td class="phone-col"><input type="text" class="phone-input" name="x4_b" autocomplete="new-password"></td>
+              </tr>
+              <tr>
+                <td class="vol-col"><span class="vol-text">Vol 5</span></td>
+                <td class="name-col name-cell">
+                  <input type="text" class="name-input" name="x5_a" autocomplete="new-password">
+                  <input type="hidden" class="id-input">
+                  <div class="suggestions"></div>
+                </td>
+                <td class="phone-col"><input type="text" class="phone-input" name="x5_b" autocomplete="new-password"></td>
+              </tr>
+            </tbody>
+          </table>
 
-          <tr>
-            <td class="vol-col"><span class="vol-text">Vol 4</span></td>
-            <td class="name-col name-cell">
-              <input type="text" class="name-input" name="x4_a" autocomplete="new-password">
-              <input type="hidden" class="id-input">
-              <div class="suggestions"></div>
-            </td>
-            <td class="phone-col"><input type="text" class="phone-input" name="x4_b" autocomplete="new-password"></td>
-            <td class="date-col readonly-cell date-cell"></td>
-            <td class="shift-col readonly-cell shift-cell"></td>
-          </tr>
+          <div class="button-row">
+            <button type="button" id="submitBtn">Submit</button>
+            <button type="button" id="clearBtn" class="secondary">Clear</button>
+          </div>
+        </div>
 
-          <tr>
-            <td class="vol-col"><span class="vol-text">Vol 5</span></td>
-            <td class="name-col name-cell">
-              <input type="text" class="name-input" name="x5_a" autocomplete="new-password">
-              <input type="hidden" class="id-input">
-              <div class="suggestions"></div>
-            </td>
-            <td class="phone-col"><input type="text" class="phone-input" name="x5_b" autocomplete="new-password"></td>
-            <td class="date-col readonly-cell date-cell"></td>
-            <td class="shift-col readonly-cell shift-cell"></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="button-row">
-        <button type="button" id="submitBtn">Submit</button>
-        <button type="button" id="clearBtn" class="secondary">Clear</button>
       </div>
     </form>
 
@@ -329,34 +280,41 @@
   </div>
 
   <script>
-    const SUPABASE_URL = 'https://tfkdkekvtuqepjqsgjoc.supabase.co';
+    const SUPABASE_URL      = 'https://tfkdkekvtuqepjqsgjoc.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_JRFxF6A8mDcZX2D05CdoCQ_F6_rDbwh';
 
-    const statusEl = document.getElementById('status');
-    const serviceDateInput = document.getElementById('serviceDate');
-    const shiftInput = document.getElementById('shift');
-    const submitBtn = document.getElementById('submitBtn');
-    const clearBtn = document.getElementById('clearBtn');
-    const formEl = document.getElementById('ymForm');
+    const statusEl          = document.getElementById('status');
+    const serviceDateInput  = document.getElementById('serviceDate');
+    const shiftInput        = document.getElementById('shift');
+    const submitBtn         = document.getElementById('submitBtn');
+    const clearBtn          = document.getElementById('clearBtn');
+    const refreshBtn        = document.getElementById('refreshBtn');
+    const assignmentListEl  = document.getElementById('assignmentList');
+    const assignmentCountEl = document.getElementById('assignmentCount');
 
     let supabaseClient = null;
-    let volunteerCache = [];   // loaded once on page open
+    let volunteerCache = [];
 
     function setStatus(msg, type = '') {
       statusEl.textContent = msg;
       statusEl.className = 'status ' + type;
     }
 
+    function escapeHtml(v) {
+      return String(v || '')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    // ── Init Supabase ──
     try {
-      if (!window.supabase) {
-        throw new Error('Supabase library did not load.');
-      }
+      if (!window.supabase) throw new Error('Supabase library did not load.');
       supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     } catch (err) {
-      console.error(err);
       setStatus('Setup error: ' + err.message, 'error');
     }
 
+    // ── Preload volunteers ──
     async function preloadVolunteers() {
       if (!supabaseClient) return;
       const { data, error } = await supabaseClient
@@ -365,244 +323,215 @@
         .order('full_name', { ascending: true });
 
       if (error) {
-        console.error('Volunteer preload error (full):', JSON.stringify(error));
-        const msg = error.message || error.details || error.hint || JSON.stringify(error);
-        setStatus('Could not load volunteer list: ' + msg, 'error');
+        const msg = error.message || error.details || JSON.stringify(error);
+        setStatus('Could not load volunteers: ' + msg, 'error');
         return;
       }
 
       volunteerCache = data || [];
       setStatus('Form ready. ' + volunteerCache.length + ' volunteers loaded.', '');
+      loadAssignments(); // populate view panel if date already set
     }
 
-    function updateRowDisplay() {
-      const dateValue = serviceDateInput.value || '';
-      const shiftValue = shiftInput.value || '';
+    // ── Load existing assignments ──
+    async function loadAssignments() {
+      const serviceDate = serviceDateInput.value;
+      const shift       = shiftInput.value;
 
-      document.querySelectorAll('.date-cell').forEach(cell => {
-        cell.textContent = dateValue;
-      });
+      if (!serviceDate) {
+        assignmentListEl.innerHTML = '<li class="no-assignments">Select a date to see existing assignments.</li>';
+        assignmentCountEl.textContent = '';
+        return;
+      }
 
-      document.querySelectorAll('.shift-cell').forEach(cell => {
-        cell.textContent = shiftValue;
-      });
+      if (!supabaseClient) {
+        assignmentListEl.innerHTML = '<li class="no-assignments" style="color:#c0392b">Supabase not connected.</li>';
+        return;
+      }
+
+      assignmentListEl.innerHTML = '<li class="no-assignments">Loading…</li>';
+      assignmentCountEl.textContent = '';
+
+      const { data, error } = await supabaseClient
+        .from('ym_assignments')
+        .select('entered_name')
+        .eq('service_date', serviceDate)
+        .eq('shift', shift)
+        .order('entered_name', { ascending: true });
+
+      if (error) {
+        // Show the real error on screen — no hiding it
+        const detail = error.message || error.details || error.hint || JSON.stringify(error);
+        assignmentListEl.innerHTML = `<li class="no-assignments" style="color:#c0392b;font-style:normal">⚠ ${escapeHtml(detail)}</li>`;
+        assignmentCountEl.textContent = '';
+        setStatus('View error: ' + detail, 'error');
+        return;
+      }
+
+      if (!data || data.length === 0) {
+        assignmentListEl.innerHTML = '<li class="no-assignments">No assignments yet for this date and shift.</li>';
+        assignmentCountEl.textContent = '';
+        return;
+      }
+
+      assignmentCountEl.textContent = data.length + ' volunteer' + (data.length !== 1 ? 's' : '') + ' assigned';
+      assignmentListEl.innerHTML = data.map(r => `<li>${escapeHtml(r.entered_name)}</li>`).join('');
     }
 
-    serviceDateInput.addEventListener('change', updateRowDisplay);
-    serviceDateInput.addEventListener('input', updateRowDisplay);
-    shiftInput.addEventListener('change', updateRowDisplay);
+    // Trigger on any date or shift change (blur covers Safari)
+    serviceDateInput.addEventListener('change', loadAssignments);
+    serviceDateInput.addEventListener('input',  loadAssignments);
+    serviceDateInput.addEventListener('blur',   loadAssignments);
+    shiftInput.addEventListener('change',       loadAssignments);
+    refreshBtn.addEventListener('click',        loadAssignments);
 
-    function clearSuggestionBox(box) {
-      box.innerHTML = '';
-      box.style.display = 'none';
+    // ── Autocomplete ──
+    function clearSuggestionBox(box) { box.innerHTML = ''; box.style.display = 'none'; }
+
+    function phoneFromPerson(p) {
+      return p.phone || p.phone_number || p.mobile_phone || p.cell_phone || '';
     }
 
-    function phoneFromPerson(person) {
-      return person.phone || person.phone_number || person.mobile_phone || person.cell_phone || '';
-    }
-
-    function escapeHtml(value) {
-      return String(value || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-
-    function searchVolunteers(searchText) {
-      const trimmed = searchText.trim().toLowerCase();
-      if (trimmed.length < 1) return [];
-      return volunteerCache
-        .filter(p => (p.full_name || '').toLowerCase().includes(trimmed))
-        .slice(0, 8);
+    function searchVolunteers(text) {
+      const t = text.trim().toLowerCase();
+      if (!t) return [];
+      return volunteerCache.filter(p => (p.full_name || '').toLowerCase().includes(t)).slice(0, 8);
     }
 
     function buildSuggestionItems(matches, input, phoneInput, idInput, box) {
       box.innerHTML = '';
-
-      if (!matches.length) {
-        clearSuggestionBox(box);
-        return;
-      }
-
+      if (!matches.length) { clearSuggestionBox(box); return; }
       matches.forEach(person => {
         const item = document.createElement('div');
         item.className = 'suggestion-item';
-        item.innerHTML = `
-          <div class="suggestion-name">${escapeHtml(person.full_name)}</div>
-          <div class="suggestion-phone">${escapeHtml(phoneFromPerson(person))}</div>
-        `;
-
-        item.addEventListener('mousedown', (e) => {
+        item.innerHTML = `<div class="suggestion-name">${escapeHtml(person.full_name)}</div>
+          <div class="suggestion-phone">${escapeHtml(phoneFromPerson(person))}</div>`;
+        item.addEventListener('mousedown', e => {
           e.preventDefault();
-          input.value = person.full_name || '';
+          input.value      = person.full_name || '';
           phoneInput.value = phoneFromPerson(person);
-          idInput.value = person.id || '';
+          idInput.value    = person.id || '';
           clearSuggestionBox(box);
         });
-
         box.appendChild(item);
       });
-
       box.style.display = 'block';
     }
 
     function wireAutocomplete() {
-      document.querySelectorAll('.name-input').forEach((input) => {
-        const row = input.closest('tr');
-        const box = row.querySelector('.suggestions');
+      document.querySelectorAll('.name-input').forEach(input => {
+        const row        = input.closest('tr');
+        const box        = row.querySelector('.suggestions');
         const phoneInput = row.querySelector('.phone-input');
-        const idInput = row.querySelector('.id-input');
+        const idInput    = row.querySelector('.id-input');
 
         input.addEventListener('input', () => {
           idInput.value = '';
-          const matches = searchVolunteers(input.value);
-          if (!input.value.trim()) {
-            clearSuggestionBox(box);
-            return;
-          }
-          buildSuggestionItems(matches, input, phoneInput, idInput, box);
+          if (!input.value.trim()) { clearSuggestionBox(box); return; }
+          buildSuggestionItems(searchVolunteers(input.value), input, phoneInput, idInput, box);
         });
 
         input.addEventListener('focus', () => {
-          const matches = searchVolunteers(input.value);
-          if (matches.length) {
-            buildSuggestionItems(matches, input, phoneInput, idInput, box);
-          }
+          const m = searchVolunteers(input.value);
+          if (m.length) buildSuggestionItems(m, input, phoneInput, idInput, box);
         });
 
-        input.addEventListener('blur', () => {
-          setTimeout(() => clearSuggestionBox(box), 200);
-        });
+        input.addEventListener('blur', () => setTimeout(() => clearSuggestionBox(box), 200));
 
-        // ── Keyboard navigation ──
-        input.addEventListener('keydown', (e) => {
+        input.addEventListener('keydown', e => {
           const items = [...box.querySelectorAll('.suggestion-item')];
-
-          if (e.key === 'Escape') {
-            e.preventDefault();
-            clearSuggestionBox(box);
-            return;
-          }
-
+          if (e.key === 'Escape') { e.preventDefault(); clearSuggestionBox(box); return; }
           if (!items.length) return;
-
           const highlighted = box.querySelector('.suggestion-item.highlighted');
           const idx = items.indexOf(highlighted);
-
           if (e.key === 'ArrowDown') {
             e.preventDefault();
             const next = idx < items.length - 1 ? idx + 1 : 0;
             items.forEach(i => i.classList.remove('highlighted'));
             items[next].classList.add('highlighted');
             items[next].scrollIntoView({ block: 'nearest' });
-
           } else if (e.key === 'ArrowUp') {
             e.preventDefault();
             const prev = idx > 0 ? idx - 1 : items.length - 1;
             items.forEach(i => i.classList.remove('highlighted'));
             items[prev].classList.add('highlighted');
             items[prev].scrollIntoView({ block: 'nearest' });
-
           } else if (e.key === 'Enter') {
             e.preventDefault();
             const h = box.querySelector('.suggestion-item.highlighted');
-            if (h) {
-              h.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
-            }
-
+            if (h) h.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
           } else if (e.key === 'Tab') {
-            // Close suggestions but let Tab move focus naturally
             clearSuggestionBox(box);
           }
         });
       });
     }
 
+    // ── Clear ──
     function clearForm() {
-      document.querySelectorAll('.name-input').forEach(el => el.value = '');
-      document.querySelectorAll('.phone-input').forEach(el => el.value = '');
+      document.querySelectorAll('.name-input, .phone-input').forEach(el => el.value = '');
       document.querySelectorAll('.id-input').forEach(el => el.value = '');
       document.querySelectorAll('.suggestions').forEach(clearSuggestionBox);
       serviceDateInput.value = '';
       shiftInput.value = 'AM';
-      updateRowDisplay();
+      assignmentListEl.innerHTML = '<li class="no-assignments">Select a date and shift to see existing assignments.</li>';
+      assignmentCountEl.textContent = '';
       setStatus('Form cleared.', '');
     }
 
+    // ── Submit ──
     submitBtn.addEventListener('click', async () => {
       try {
         setStatus('Saving...', '');
-
         const serviceDate = serviceDateInput.value;
-        const shift = shiftInput.value;
+        const shift       = shiftInput.value;
 
-        if (!serviceDate) {
-          setStatus('Please choose a service date.', 'error');
-          return;
-        }
-
-        if (!supabaseClient) {
-          setStatus('Supabase is not configured correctly.', 'error');
-          return;
-        }
+        if (!serviceDate) { setStatus('Please choose a service date.', 'error'); return; }
+        if (!supabaseClient) { setStatus('Supabase not configured.', 'error'); return; }
 
         const records = [];
         document.querySelectorAll('tbody tr').forEach(row => {
-          const name = row.querySelector('.name-input').value.trim();
-          const phone = row.querySelector('.phone-input').value.trim();
+          const name        = row.querySelector('.name-input').value.trim();
+          const phone       = row.querySelector('.phone-input').value.trim();
           const volunteerId = row.querySelector('.id-input').value.trim();
-
-          if (name) {
-            records.push({
-              service_date: serviceDate,
-              shift: shift,
-              volunteer_id: volunteerId || null,
-              entered_name: name,
-              entered_phone: phone || null,
-              source: 'YM_FORM'
-            });
-          }
+          if (name) records.push({
+            service_date:  serviceDate,
+            shift:         shift,
+            volunteer_id:  volunteerId || null,
+            entered_name:  name,
+            entered_phone: phone || null,
+            source:        'YM_FORM'
+          });
         });
 
-        if (!records.length) {
-          setStatus('Please enter at least one volunteer.', 'error');
-          return;
-        }
+        if (!records.length) { setStatus('Please enter at least one volunteer.', 'error'); return; }
 
-        const { error } = await supabaseClient
-          .from('ym_assignments')
-          .insert(records);
+        const { error } = await supabaseClient.from('ym_assignments').insert(records);
 
         if (error) {
-          console.error('Insert error:', error);
-          const detail = error.hint ? `${error.message}\nHint: ${error.hint}` : error.message;
-          setStatus('Error saving assignments: ' + detail, 'error');
+          const detail = [error.message, error.hint, error.details].filter(Boolean).join(' | ');
+          setStatus('Save error: ' + detail, 'error');
           return;
         }
 
         setStatus(records.length + ' volunteer(s) saved successfully.', 'success');
-
-        document.querySelectorAll('.name-input').forEach(el => el.value = '');
-        document.querySelectorAll('.phone-input').forEach(el => el.value = '');
+        document.querySelectorAll('.name-input, .phone-input').forEach(el => el.value = '');
         document.querySelectorAll('.id-input').forEach(el => el.value = '');
+        await loadAssignments();
 
       } catch (err) {
-        console.error('Submit handler error:', err);
-        setStatus('Submit handler error: ' + err.message, 'error');
+        setStatus('Submit error: ' + err.message, 'error');
       }
     });
 
     clearBtn.addEventListener('click', clearForm);
 
-    document.addEventListener('click', (event) => {
-      if (!event.target.closest('.name-cell')) {
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.name-cell')) {
         document.querySelectorAll('.suggestions').forEach(clearSuggestionBox);
       }
     });
 
-    updateRowDisplay();
     wireAutocomplete();
     setStatus('Loading volunteers...', '');
     preloadVolunteers();
